@@ -8,9 +8,41 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+<div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
+<!-- <label for="amount" class="control-label">
+               First Name
+            </label>
+<div class="field">
+              <input type="text" id="first_name" name="first_name" placeholder="First Name (Optional)" class="form-control"value="<%= @user.first_name %>">
+  </div>
+   <label for="amount" class="control-label">
+              Last Name
+            </label>
+    <div class="field">
+              <input type="text" id="last_name" name="last_name" placeholder="Last Name (Optional)" class="form-control"value="<%= @user.last_name %>">
+  </div>
+     <label for="amount" class="control-label">
+              Address
+            </label>
+    <div class="field">
+              <input type="text" id="address" name="address" placeholder="Address (Optional)" class="form-control"value="<%= @user.address %>">
+  </div> -->
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -31,9 +63,9 @@
     <%= f.submit "Update" %>
   </div>
 <% end %>
+<br></br>
+<h3>Unhappy? Cancel my account</h3>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

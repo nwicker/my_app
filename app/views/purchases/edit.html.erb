@@ -17,7 +17,7 @@
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Edit Purchase #<%= @purchase.id %></h3>
+        <h3 class="panel-title">Purchase: <%= @purchase.location %> / <%= @purchase.datetime.strftime ('%b %d, %Y at %l:%M%P') %></h3>
       </div>
       <div class="panel-body">
         <form action="/update_purchase/<%= @purchase.id %>" method="post" class="form-horizontal">
@@ -37,10 +37,10 @@
           <!-- Label and input for datetime -->
           <div class="form-group">
             <label for="datetime" class="col-sm-2 control-label">
-              Datetime
+              Time and Date (Required)
             </label>
             <div class="col-sm-10">
-              <input type="text" id="datetime" name="datetime" placeholder="Datetime" class="form-control" value="<%= @purchase.datetime %>">
+              <input type="text" id="datetime" name="datetime" placeholder="(Automatic)" class="form-control" value="<%= @purchase.datetime.strftime ('%b %d, %Y at %l:%M%P') %>">
             </div>
           </div>
 
@@ -54,15 +54,15 @@
             </div>
           </div>
 
-          <!-- Label and input for user_id -->
+          <!-- Label and input for user_id 
           <div class="form-group">
             <label for="user_id" class="col-sm-2 control-label">
               User
             </label>
             <div class="col-sm-10">
-              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @purchase.user_id %>">
+              <input type="text" id="user_id" name="user_id" placeholder="(Defaults to Current User)" class="form-control" value="<%= @purchase.user_id %>">
             </div>
-          </div>
+          </div>-->
 
           <!-- Label and input for account_balance_change -->
           <div class="form-group">

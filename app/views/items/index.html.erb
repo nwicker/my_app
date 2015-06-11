@@ -16,25 +16,27 @@
 <hr>
 
 <div class="row isotope-container">
-<% @items.each do |item| %>
+<% @item.each do |item| %>
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Item #<%= item.id %></h3>
+        <h3 class="panel-title">Item: <%= item.item %></h3>
       </div>
       <div class="panel-body">
         <dl>
           <dt>Purchase</dt>
-          <dd><%= item.purchase_id %></dd>
+          <dd><%= item.purchase.location %> on <%= item.purchase.datetime.strftime ('%b %d, %Y at %l:%M%P') %></dd>
 
-          <dt>Item</dt>
-          <dd><%= item.item %></dd>
+         <!-- <dt>Item</dt>
+          <dd><%= item.item %></dd> -->
 
         </dl>
         <div class="btn-group btn-group-justified">
           <a href="/items/<%= item.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
+
+          <% if item.purchase.id == current_user.id %>
 
           <a href="/items/<%= item.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
@@ -43,6 +45,7 @@
           <a href="/delete_item/<%= item.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
           </a>
+          <% end %>
         </div>
       </div>
     </div>

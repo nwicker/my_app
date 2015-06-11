@@ -3,8 +3,10 @@
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
+    <br></br>
+    <br></br>
       <div class="panel-heading">
-        <h3 class="panel-title">Item #<%= @item.id %></h3>
+        <h3 class="panel-title">Item: <%= @item.item %></h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -15,6 +17,12 @@
 
               <dt>Item</dt>
               <dd><%= @item.item %></dd>
+
+              <dt>Location</dt>
+              <dd><%= @item.purchase.location %></dd>
+
+              <dt>Date & Time</dt>
+              <dd><%= @item.purchase.datetime.strftime ('%b %d, %Y at %l:%M%P') %></dd>
 
             </dl>
             <div class="btn-group btn-group-justified">

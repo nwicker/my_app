@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   def index
-    @purchases = Purchase.all
+    @purchases = Purchase.where({ :user_id => current_user.id})
+    
   end
 
   def show
@@ -10,21 +11,25 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
   end
-
+  
+  
   def create
+   
+   
     @purchase = Purchase.new
     @purchase.amount = params[:amount]
     @purchase.datetime = params[:datetime]
+    Chronic.parse(:datetime)
     @purchase.location = params[:location]
     @purchase.user_id = current_user.id
     @purchase.account_balance_change = params[:account_balance_change]
 
-    if @purchase.save
-      redirect_to "/purchases", :notice => "Purchase created successfully."
-    else
-      render 'new'
-    end
+  if @purchase.save
+  redirect_to "/purchases", :notice => "Purchase created successfully."
+  else
+  render 'new'
   end
+end
 
   def edit
     @purchase = Purchase.find(params[:id])
@@ -35,6 +40,7 @@ class PurchasesController < ApplicationController
 
     @purchase.amount = params[:amount]
     @purchase.datetime = params[:datetime]
+    Chronic.parse(:datetime)
     @purchase.location = params[:location]
     @purchase.user_id = params[:current_user]
     @purchase.account_balance_change = params[:account_balance_change]

@@ -1,6 +1,23 @@
 class ItemsController < ApplicationController
+
+  before_action :check_if_owner, only: [:edit, :update, :destroy]
+
+  def check_if_owner
+
+    item = Item.find(params[:id])
+    if item.purchase.id != current_user.id
+      redirect_to "/items", notice: "Nope! Not your Item"
+  end
+end
+
   def index
-    @items = Item.all
+   @item = Item.all
+  
+  ##  where({ :user_id => current_user.id})
+  ##  current_user.items
+  ##  @i = Item.ransack(params[:q])
+  ##  @items = @i.result
+  
   end
 
   def show

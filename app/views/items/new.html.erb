@@ -28,7 +28,7 @@
               Purchase
             </label>
             <div class="col-sm-10">
-            <%= select_tag(:purchase_id, options_from_collection_for_select(Purchase.all, :id, :id), :class => "form-control") %>
+            <%= select_tag(:purchase_id, options_from_collection_for_select(Purchase.all, :id, :datetime), :class => "form-control") %>
             
 
             <!--  <input type="text" id="purchase_id" name="purchase_id" placeholder="Purchase" class="form-control" value="<%= @item.purchase_id %>">

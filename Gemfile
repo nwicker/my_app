@@ -10,6 +10,8 @@ gem 'carrierwave'
 
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
+gem 'ransack'
+gem 'chronic'
 gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'ransack'

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+ 
+
+
   devise_for :users
   # Routes for the Item resource:
   # CREATE
